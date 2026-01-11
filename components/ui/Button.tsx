@@ -38,7 +38,7 @@ export default function Button({
         <ActivityIndicator color="#f5f5f5" />
       ) : (
         <AppText 
-          variant="semiBold" 
+          variant="regular" 
           style={[styles.text, textStyle]}
         >
           {title}
