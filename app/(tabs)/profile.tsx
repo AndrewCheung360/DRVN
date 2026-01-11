@@ -1,12 +1,18 @@
-import MotivationCard from "@/components/profile/MotivationCard";
+import MotivationCard from "@/components/MotivationCard";
+import ProfileHeader from "@/components/profile/ProfileHeader";
 import ProfileInformationCardRow from "@/components/profile/ProfileInformationCardRow";
 import Spacer from "@/components/ui/Spacer";
 import { StyleSheet, View } from "react-native";
 
-
 export default function ProfileScreen() {
   return (
     <View style={styles.container}>
+      <ProfileHeader 
+        name="Ryan C" 
+        handle="ryanc" 
+        imageUrl={undefined}
+      />
+      <Spacer size={16} />
       <ProfileInformationCardRow 
         cards={[
           { label: "Streak", value: "12", valueSize: "large" },
@@ -26,6 +32,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#000",
-    paddingTop: 60,
+    paddingTop: 32,
   },
 });
