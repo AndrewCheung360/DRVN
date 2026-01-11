@@ -6,7 +6,8 @@
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "drvn",
-    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#000000", // Changed to dark background color
+    "userInterfaceStyle": "dark", 
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
@@ -38,7 +39,8 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true,
