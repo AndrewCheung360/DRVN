@@ -1,4 +1,5 @@
-import { ActivityIndicator, StyleSheet, Text, TextStyle, TouchableOpacity, ViewStyle } from "react-native";
+import { AppText } from "@/components/ui/AppText";
+import { ActivityIndicator, StyleSheet, TextStyle, TouchableOpacity, ViewStyle } from "react-native";
 
 type ButtonVariant = "primary" | "secondary" | "outline";
 
@@ -34,11 +35,14 @@ export default function Button({
       activeOpacity={0.7}
     >
       {loading ? (
-        <ActivityIndicator color={variant === "outline" ? "#007AFF" : "#fff"} />
+        <ActivityIndicator color="#f5f5f5" />
       ) : (
-        <Text style={[styles.text, styles[`${variant}Text`], textStyle]}>
+        <AppText 
+          variant="semiBold" 
+          style={[styles.text, textStyle]}
+        >
           {title}
-        </Text>
+        </AppText>
       )}
     </TouchableOpacity>
   );
@@ -48,35 +52,26 @@ const styles = StyleSheet.create({
   button: {
     paddingVertical: 14,
     paddingHorizontal: 24,
-    borderRadius: 8,
+    borderRadius: 0,
     alignItems: "center",
     justifyContent: "center",
+    borderWidth: 1,
+    borderColor: "#f5f5f5",
   },
   primary: {
-    backgroundColor: "#007AFF",
+    backgroundColor: "transparent",
   },
   secondary: {
     backgroundColor: "#6c757d",
   },
   outline: {
     backgroundColor: "transparent",
-    borderWidth: 2,
-    borderColor: "#007AFF",
   },
   disabled: {
     opacity: 0.5,
   },
   text: {
     fontSize: 16,
-    fontWeight: "600",
-  },
-  primaryText: {
-    color: "#fff",
-  },
-  secondaryText: {
-    color: "#fff",
-  },
-  outlineText: {
-    color: "#007AFF",
+    color: "#f5f5f5",
   },
 });
