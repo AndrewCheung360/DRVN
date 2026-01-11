@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderWidth: 1,
-    borderColor: "#f5f5f5",
+    borderColor: "rgba(245, 245, 245, 0.1)",
   },
   primary: {
     backgroundColor: "transparent",
