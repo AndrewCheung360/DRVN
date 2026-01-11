@@ -15,7 +15,7 @@ export function AppText({ style, variant = 'regular', ...props }: AppTextProps) 
       case 'semiBold': return 'GeistMono-SemiBold';
       case 'medium': return 'GeistMono-Medium';
       case 'light': return 'GeistMono-Light';
-      default: return 'GeistMono';
+      default: return 'GeistMono-Regular';
     }
   }, [variant]);
 
