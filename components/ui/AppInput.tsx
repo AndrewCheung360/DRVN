@@ -1,4 +1,4 @@
-import { COLORS, SPACING } from "@/constants";
+import { COLORS, FONT_SIZE, SPACING } from "@/constants";
 import { StyleSheet, TextInput, TextInputProps, View, ViewStyle } from "react-native";
 import { AppText } from "./AppText";
 
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     gap: SPACING.sm,
   },
   label: {
-    fontSize: 14,
+    fontSize: FONT_SIZE.md,
     color: COLORS.textInput,
   },
   input: {
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.border,
     backgroundColor: COLORS.textInputBackground,
     padding: SPACING.lg,
-    fontSize: 16,
+    fontSize: FONT_SIZE.lg,
     color: COLORS.text,
     fontFamily: "GeistMono-Regular",
   },

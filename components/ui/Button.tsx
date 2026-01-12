@@ -1,4 +1,5 @@
 import { AppText } from "@/components/ui/AppText";
+import { COLORS, FONT_SIZE, LAYOUT } from "@/constants";
 import { ActivityIndicator, StyleSheet, TextStyle, TouchableOpacity, ViewStyle } from "react-native";
 
 type ButtonVariant = "primary" | "secondary" | "outline";
@@ -51,12 +52,12 @@ export default function Button({
 const styles = StyleSheet.create({
   button: {
     paddingVertical: 14,
-    paddingHorizontal: 24,
+    paddingHorizontal: LAYOUT.horizontalPadding,
     borderRadius: 0,
     alignItems: "center",
     justifyContent: "center",
     borderWidth: 1,
-    borderColor: "rgba(245, 245, 245, 0.1)",
+    borderColor: COLORS.border,
   },
   primary: {
     backgroundColor: "transparent",
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   text: {
-    fontSize: 16,
-    color: "#f5f5f5",
+    fontSize: FONT_SIZE.lg,
+    color: COLORS.text,
   },
 });

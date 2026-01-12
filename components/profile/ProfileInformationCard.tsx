@@ -41,10 +41,10 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: FONT_SIZE.sm,
-    color: "#f5f5f5",
+    color: COLORS.text,
   },
   value: {
-    color: "#f5f5f5",
+    color: COLORS.text,
   },
   valueLarge: {
     fontSize: FONT_SIZE.xxl,

@@ -1,5 +1,5 @@
 import { AppText } from "@/components/ui/AppText";
-import { FONT_SIZE, LAYOUT } from "@/constants";
+import { COLORS, FONT_SIZE, LAYOUT } from "@/constants";
 import { StyleSheet, View } from "react-native";
 import ProfileIcon from "./ProfileIcon";
 
@@ -33,11 +33,11 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: FONT_SIZE.xxl,
-    color: "#f5f5f5",
+    color: COLORS.text,
   },
   handle: {
     fontSize: FONT_SIZE.md,
-    color: "#f5f5f5",
+    color: COLORS.text,
     opacity: 0.7,
   },
 });

@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
   },
   day: {
     fontSize: FONT_SIZE.sm,
-    color: "#f5f5f5",
+    color: COLORS.text,
     lineHeight: 14,
   },
   description: {
     fontSize: FONT_SIZE.md,
-    color: "#f5f5f5",
+    color: COLORS.text,
     lineHeight: 18,
     flex: 1,
   },

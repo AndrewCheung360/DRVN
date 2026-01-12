@@ -4,6 +4,7 @@ import TrainingGrid from "@/components/profile/TrainingGrid";
 import MotivationCard from "@/components/shared/MotivationCard";
 import { AppText } from "@/components/ui/AppText";
 import Spacer from "@/components/ui/Spacer";
+import { COLORS, FONT_SIZE, LAYOUT } from "@/constants";
 import { ScrollView, StyleSheet } from "react-native";
 
 export default function ProfileScreen() {
@@ -56,8 +57,8 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   sectionTitle: {
-    fontSize: 16,
-    color: "#f5f5f5",
-    marginHorizontal: 24,
+    fontSize: FONT_SIZE.lg,
+    color: COLORS.text,
+    marginHorizontal: LAYOUT.horizontalPadding,
   },
 });

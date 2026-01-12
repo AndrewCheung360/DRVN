@@ -1,3 +1,4 @@
+import { COLORS, FONT_SIZE } from '@/constants';
 import React, { useMemo } from 'react';
 import { StyleSheet, Text, TextProps } from 'react-native';
 
@@ -33,8 +34,8 @@ export function AppText({ style, variant = 'regular', ...props }: AppTextProps) 
 
 const styles = StyleSheet.create({
   base: {
-    color: '#fff', 
-    fontSize: 16,
+    color: COLORS.text, 
+    fontSize: FONT_SIZE.lg,
     // Added default line height to make the mono font more readable
     lineHeight: 22, 
   },

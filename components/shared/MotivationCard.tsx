@@ -1,4 +1,5 @@
 import { AppText } from "@/components/ui/AppText";
+import { COLORS, FONT_SIZE, LAYOUT } from "@/constants";
 import { StyleSheet, View } from "react-native";
 
 interface MotivationCardProps {
@@ -17,19 +18,19 @@ export default function MotivationCard({ motivation }: MotivationCardProps) {
 const styles = StyleSheet.create({
   card: {
     minHeight: 153,
-    marginHorizontal: 24,
+    marginHorizontal: LAYOUT.horizontalPadding,
     borderWidth: 1,
-    borderColor: "#f5f5f51A",
-    backgroundColor: "rgba(255, 255, 255, 0.03)",
+    borderColor: COLORS.border,
+    backgroundColor: COLORS.cardBackground,
     padding: 25,
     gap: 8,
   },
   label: {
-    fontSize: 12,
-    color: "#f5f5f5",
+    fontSize: FONT_SIZE.sm,
+    color: COLORS.text,
   },
   motivation: {
-    fontSize: 14,
-    color: "#f5f5f5",
+    fontSize: FONT_SIZE.md,
+    color: COLORS.text,
   },
 });

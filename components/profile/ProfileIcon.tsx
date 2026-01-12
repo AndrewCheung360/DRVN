@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   initial: {
     fontSize: FONT_SIZE.xxxl,
-    color: "#f5f5f5",
+    color: COLORS.text,
     lineHeight: 28,
     textAlign: "center",
   },
