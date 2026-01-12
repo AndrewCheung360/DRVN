@@ -1,4 +1,5 @@
 import { AppText } from "@/components/ui/AppText";
+import { COLORS, FONT_SIZE } from "@/constants";
 import { Image, StyleSheet, View } from "react-native";
 
 interface ProfileIconProps {
@@ -23,8 +24,8 @@ const styles = StyleSheet.create({
     height: 64,
     borderRadius: 32,
     borderWidth: 2,
-    borderColor: "#f5f5f51A",
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    borderColor: COLORS.border,
+    backgroundColor: COLORS.cardBackgroundHover,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
   },
   initial: {
-    fontSize: 24,
+    fontSize: FONT_SIZE.xxxl,
     color: "#f5f5f5",
     lineHeight: 28,
     textAlign: "center",

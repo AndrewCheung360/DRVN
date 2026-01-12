@@ -1,4 +1,5 @@
 import { AppText } from "@/components/ui/AppText";
+import { COLORS, FONT_SIZE } from "@/constants";
 import { StyleSheet, View } from "react-native";
 
 type ValueSize = "large" | "small";
@@ -33,22 +34,22 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 106,
     borderWidth: 1,
-    borderColor: "rgba(245, 245, 245, 0.1)",
-    backgroundColor: "rgba(255, 255, 255, 0.05)",
+    borderColor: COLORS.border,
+    backgroundColor: COLORS.cardBackgroundLight,
     padding: 20,
     gap: 8,
   },
   label: {
-    fontSize: 12,
+    fontSize: FONT_SIZE.sm,
     color: "#f5f5f5",
   },
   value: {
     color: "#f5f5f5",
   },
   valueLarge: {
-    fontSize: 20,
+    fontSize: FONT_SIZE.xxl,
   },
   valueSmall: {
-    fontSize: 14,
+    fontSize: FONT_SIZE.md,
   },
 });

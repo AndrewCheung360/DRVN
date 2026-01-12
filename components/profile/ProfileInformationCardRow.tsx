@@ -1,3 +1,4 @@
+import { LAYOUT } from "@/constants";
 import { StyleSheet, View } from "react-native";
 import ProfileInformationCard from "./ProfileInformationCard";
 
@@ -31,7 +32,7 @@ export default function ProfileInformationCardRow({ cards }: ProfileInformationC
 const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
-    marginHorizontal: 24,
-    gap: 16,
+    marginHorizontal: LAYOUT.horizontalPadding,
+    gap: LAYOUT.profileCardGap,
   },
 });

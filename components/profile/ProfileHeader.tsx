@@ -1,4 +1,5 @@
 import { AppText } from "@/components/ui/AppText";
+import { FONT_SIZE, LAYOUT } from "@/constants";
 import { StyleSheet, View } from "react-native";
 import ProfileIcon from "./ProfileIcon";
 
@@ -24,18 +25,18 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    marginHorizontal: 24,
-    gap: 16,
+    marginHorizontal: LAYOUT.horizontalPadding,
+    gap: LAYOUT.gridGap,
   },
   textContainer: {
     gap: 4,
   },
   name: {
-    fontSize: 20,
+    fontSize: FONT_SIZE.xxl,
     color: "#f5f5f5",
   },
   handle: {
-    fontSize: 14,
+    fontSize: FONT_SIZE.md,
     color: "#f5f5f5",
     opacity: 0.7,
   },
