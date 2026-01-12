@@ -1,7 +1,10 @@
 import HomeScreenHeader from "@/components/home/HomeScreenHeader";
+import MotivationCard from "@/components/shared/MotivationCard";
 import AppInput from "@/components/ui/AppInput";
+import { AppText } from "@/components/ui/AppText";
 import Button from "@/components/ui/Button";
 import IconButton from "@/components/ui/IconButton";
+import Spacer from "@/components/ui/Spacer";
 import { StyleSheet, View } from "react-native";
 
 export default function Index() {
@@ -16,6 +19,17 @@ export default function Index() {
         subtitle="12 day streak"
         onFriendsPress={() => console.log("Friends pressed")}
       />
+      <Spacer size={48} />
+
+      <MotivationCard 
+        motivation="I want to become the best version of myself and inspire others along the way." 
+      />
+
+      <Spacer size={48} />
+
+      <AppText variant="medium" style={{ fontSize: 20, marginLeft: 24 }}>Today&apos;s Training</AppText>
+
+      <Spacer size={64} />
       <Button title="Get Started" onPress={handlePress} />
       <IconButton icon="add" onPress={handlePress} />
       <AppInput placeholder="Enter name" />

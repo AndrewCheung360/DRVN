@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     fontSize: FONT_SIZE.md,
   },
   iconButton: {
+    paddingTop: 0, // Removes padding added by IconButton component
     paddingRight: LAYOUT.horizontalPadding,
   },
 });
