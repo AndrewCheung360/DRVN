@@ -1,7 +1,9 @@
 // Colors
 export const COLORS = {
   background: "#000",
+  textInputBackground: "#1f1f1f",
   text: "#f5f5f5",
+  textInput: "#a3a3a3",
   border: "#f5f5f51A",
   cardBackground: "rgba(255, 255, 255, 0.03)",
   cardBackgroundLight: "rgba(255, 255, 255, 0.05)",
