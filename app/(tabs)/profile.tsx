@@ -1,7 +1,7 @@
-import MotivationCard from "@/components/MotivationCard";
 import ProfileHeader from "@/components/profile/ProfileHeader";
 import ProfileInformationCardRow from "@/components/profile/ProfileInformationCardRow";
 import TrainingGrid from "@/components/profile/TrainingGrid";
+import MotivationCard from "@/components/shared/MotivationCard";
 import { AppText } from "@/components/ui/AppText";
 import Spacer from "@/components/ui/Spacer";
 import { ScrollView, StyleSheet } from "react-native";
