@@ -5,9 +5,12 @@ import { AppText } from "@/components/ui/AppText";
 import Button from "@/components/ui/Button";
 import IconButton from "@/components/ui/IconButton";
 import Spacer from "@/components/ui/Spacer";
+import { useRouter } from "expo-router";
 import { StyleSheet, View } from "react-native";
 
-export default function Index() {
+export default function HomeScreen() {
+  const router = useRouter();
+
   const handlePress = () => {
     console.log("Button pressed!");
   };
@@ -17,7 +20,7 @@ export default function Index() {
       <HomeScreenHeader 
         title="DRVN"
         subtitle="12 day streak"
-        onFriendsPress={() => console.log("Friends pressed")}
+        onFriendsPress={() => router.push("./friends")}
       />
       <Spacer size={48} />
 
