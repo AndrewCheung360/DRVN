@@ -20,7 +20,7 @@ export default function HomeScreen() {
       <HomeScreenHeader 
         title="DRVN"
         subtitle="12 day streak"
-        onFriendsPress={() => router.push("./friends")}
+        onFriendsPress={() => router.push("/(tabs)/home/friends")}
       />
       <Spacer size={48} />
 

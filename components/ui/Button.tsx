@@ -2,7 +2,7 @@ import { AppText } from "@/components/ui/AppText";
 import { COLORS, FONT_SIZE, LAYOUT } from "@/constants";
 import { ActivityIndicator, StyleSheet, TextStyle, TouchableOpacity, ViewStyle } from "react-native";
 
-type ButtonVariant = "primary" | "secondary" | "outline";
+type ButtonVariant = "primary" | "secondary" | "outline" | "plain";
 
 interface ButtonProps {
   title: string;
@@ -74,5 +74,10 @@ const styles = StyleSheet.create({
   text: {
     fontSize: FONT_SIZE.lg,
     color: COLORS.text,
+  },
+  plain: {
+    backgroundColor: "transparent",
+    borderWidth: 0,
+    borderColor: "transparent",
   },
 });

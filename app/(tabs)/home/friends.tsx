@@ -1,3 +1,5 @@
+import { FriendCard } from "@/components/home/friends/FriendCard";
+import AppInput from "@/components/ui/AppInput";
 import { AppText } from "@/components/ui/AppText";
 import IconButton from "@/components/ui/IconButton";
 import Spacer from "@/components/ui/Spacer";
@@ -7,6 +9,10 @@ import { StyleSheet, View } from "react-native";
 
 export default function FriendsScreen() {
   const router = useRouter();
+  const handleViewProfile = () => {
+    // Handle navigation or logic here
+    console.log("View Profile pressed!");
+  };
 
   return (
     <View style={styles.container}>
@@ -19,9 +25,16 @@ export default function FriendsScreen() {
       <Spacer size={SPACING.xxl} />
 
       <View style={styles.content}>
-        <AppText variant="regular" style={styles.text}>
-          Friends list coming soon
-        </AppText>
+        <AppInput placeholder="Search friends..." style={{ marginBottom: SPACING.lg }} />
+
+        <FriendCard
+          userName="Jane Doe"
+          handle="janedoe"
+          sport="Running"
+          streak={7}
+          lastActive="2 hours ago"
+          onViewProfile={handleViewProfile}
+        />
       </View>
     </View>
   );
