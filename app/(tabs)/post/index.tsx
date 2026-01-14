@@ -4,6 +4,7 @@ import PostScreenHeader from "@/components/post/PostScreenHeader";
 import AppInput from "@/components/ui/AppInput";
 import Spacer from "@/components/ui/Spacer";
 import { COLORS, FONT_SIZE, LAYOUT, SPACING } from "@/constants";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
   KeyboardAvoidingView,
@@ -17,6 +18,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function PostScreen() {
   const [description, setDescription] = useState("");
+  const router = useRouter();
+
+  const handleContinue = () => {
+    router.push("/(tabs)/post/reflection");
+  };
 
   return (
     <SafeAreaView style={styles.safeArea} edges={["top"]}>
@@ -50,7 +56,7 @@ export default function PostScreen() {
 
         <PostFooterButtons
           onCancel={() => console.log("Cancel pressed")}
-          onConfirm={() => console.log("Continue pressed")}
+          onConfirm={handleContinue}
         />
       </KeyboardAvoidingView>
     </SafeAreaView>
