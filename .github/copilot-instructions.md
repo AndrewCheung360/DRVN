@@ -20,7 +20,7 @@
 ## Styling
 - Use constants from constants/index.ts (COLORS, FONT_SIZE, LAYOUT) for all styling.
 - If a new constant is needed, suggest where it should be added in constants/.
-- Do not hardcode colors, font sizes, or spacing values.
+- Do not hardcode colors, font sizes, or spacing values. If necessary, suggest adding them to the constants file.
 - Use StyleSheet.create for styles in React Native components.
 
 ## Navigation
@@ -47,3 +47,41 @@
 ## Project Structure
 - Keep files organized by feature or domain (e.g., home, post, profile).
 - Use index.ts files for barrel exports where appropriate.
+
+## #review (DRVN Project)
+
+- **Trigger**: When the user starts a message with "#review", analyze the provided code for the following DRVN-specific standards:
+
+### UI Consistency
+- Ensure all text uses the `AppText` component (never default `Text`).
+- All colors, font sizes, and spacing must use constants from `constants/index.ts` (e.g., `COLORS`, `FONT_SIZE`, `LAYOUT`, `SPACING`).
+- The app theme should be pure black (`#000`) for backgrounds and consistent with DRVN’s design system.
+- Use `Spacer` for vertical spacing, not manual margin/padding.
+
+### Architectural Quality
+- No hardcoded color, font size, or spacing values—suggest adding missing values to constants.
+- UI components should not contain business logic; logic should be moved to hooks or controller functions.
+- All navigation must use expo-router and follow folder-based routing conventions.
+
+### TypeScript Quality
+- Avoid `any` types; all props and state should be strictly typed.
+- All exported functions, components, and hooks must have clear interface/type definitions.
+- Prefer named exports unless a default export is required by convention.
+
+### Performance
+- All lists must have a `key` prop for each item.
+- Heavy calculations or derived data inside render loops should be wrapped in `useMemo` or moved outside the render.
+- Avoid unnecessary re-renders by memoizing components or values where appropriate.
+
+### Documentation & Comments
+- All exported functions, components, and hooks should have JSDoc comments.
+- Complex logic should be commented for clarity.
+
+### Review Summary
+- At the end of the review, provide a "Review Summary" listing all identified issues.
+- Provide a "Refactored Snippet" that resolves the most critical issues, following DRVN’s conventions.
+
+---
+
+**Note:**  
+If a change involves navigation routes or global constants, remind the user to verify the corresponding file (e.g., `_layout.tsx` or `constants/index.ts`).
