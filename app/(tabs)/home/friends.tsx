@@ -6,6 +6,7 @@ import Spacer from "@/components/ui/Spacer";
 import { COLORS, FONT_SIZE, LAYOUT, SPACING } from "@/constants";
 import { useRouter } from "expo-router";
 import { StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function FriendsScreen() {
   const router = useRouter();
@@ -15,36 +16,42 @@ export default function FriendsScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <IconButton icon="arrow-back" onPress={() => router.back()} />
-        <AppText variant="medium" style={styles.title}>Friends</AppText>
-        <View style={styles.placeholder} />
+    <SafeAreaView style={styles.safeArea} edges={["top"]}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <IconButton icon="arrow-back" onPress={() => router.back()} />
+          <AppText variant="medium" style={styles.title}>Friends</AppText>
+          <View style={styles.placeholder} />
+        </View>
+
+        <Spacer size={SPACING.xxl} />
+
+        <View style={styles.content}>
+          <AppInput placeholder="Search friends..." style={{ marginBottom: SPACING.lg }} />
+
+          <FriendCard
+            userName="Jane Doe"
+            handle="janedoe"
+            sport="Running"
+            streak={7}
+            lastActive="2 hours ago"
+            onViewProfile={handleViewProfile}
+          />
+        </View>
       </View>
-
-      <Spacer size={SPACING.xxl} />
-
-      <View style={styles.content}>
-        <AppInput placeholder="Search friends..." style={{ marginBottom: SPACING.lg }} />
-
-        <FriendCard
-          userName="Jane Doe"
-          handle="janedoe"
-          sport="Running"
-          streak={7}
-          lastActive="2 hours ago"
-          onViewProfile={handleViewProfile}
-        />
-      </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: COLORS.background,
+  },
   container: {
     flex: 1,
     backgroundColor: COLORS.background,
-    paddingTop: SPACING.xxl,
+    // Removed paddingTop, SafeAreaView handles it
   },
   header: {
     flexDirection: "row",

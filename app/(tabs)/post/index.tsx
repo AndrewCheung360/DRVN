@@ -13,25 +13,25 @@ import {
   StyleSheet,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function PostScreen() {
   const [description, setDescription] = useState("");
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.safeArea} edges={["top"]}>
       <StatusBar barStyle="light-content" backgroundColor={COLORS.background} />
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.keyboardView}
       >
-        <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <View style={styles.headerWrapper}>
           <PostScreenHeader 
             title="New Post" 
             onClose={() => console.log("Close pressed")} 
           />
-
-          <Spacer size={SPACING.xxl} />
-
+        </View>
+        <ScrollView contentContainerStyle={styles.scrollViewContent}>
           <MediaPicker onPress={() => console.log("Add media pressed")} />
 
           <Spacer size={SPACING.xxl} />
@@ -53,17 +53,25 @@ export default function PostScreen() {
           onConfirm={() => console.log("Continue pressed")}
         />
       </KeyboardAvoidingView>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: COLORS.background,
+  },
   container: {
     flex: 1,
     backgroundColor: COLORS.background,
   },
   keyboardView: {
     flex: 1,
+  },
+  headerWrapper: {
+    backgroundColor: COLORS.background,
+    zIndex: 1,
   },
   scrollViewContent: {
     flexGrow: 1,

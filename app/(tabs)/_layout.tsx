@@ -5,7 +5,10 @@ export default function TabLayout() {
   return (
     <Tabs 
       initialRouteName="home"
-      screenOptions={{ tabBarActiveTintColor: "#007AFF" }}
+      screenOptions={{ 
+        tabBarActiveTintColor: "#007AFF",
+        headerShown: false,
+      }}
     >
       <Tabs.Screen
         name="home"

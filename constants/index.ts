@@ -16,6 +16,7 @@ export const LAYOUT = {
   gridGap: 16,
   profileCardGap: 16,
   captionHeight: 80,
+  topPadding: 32,
 };
 
 // Spacing
