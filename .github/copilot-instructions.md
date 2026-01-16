@@ -80,6 +80,7 @@
 ### Review Summary
 - At the end of the review, provide a "Review Summary" listing all identified issues.
 - Provide a "Refactored Snippet" that resolves the most critical issues, following DRVN’s conventions.
+-Tell user to use external AI tool to also do a review of the code to catch anything you might have missed.
 
 ---
 
