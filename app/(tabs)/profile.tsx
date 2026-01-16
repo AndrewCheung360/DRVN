@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.background,
-    // Remove paddingTop here, SafeAreaView handles it
   },
   content: {
     paddingTop: 32,

@@ -21,7 +21,8 @@ export default function FriendsScreen() {
         <View style={styles.header}>
           <IconButton icon="arrow-back" onPress={() => router.back()} />
           <AppText variant="medium" style={styles.title}>Friends</AppText>
-          <View style={styles.placeholder} />
+          {/* Placeholder for alignment */}
+          <View style={styles.placeholder} /> 
         </View>
 
         <Spacer size={SPACING.xxl} />

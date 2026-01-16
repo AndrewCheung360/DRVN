@@ -1,5 +1,5 @@
 import { AppText } from "@/components/ui/AppText";
-import { COLORS, LAYOUT, SPACING } from "@/constants";
+import { COLORS, FONT_SIZE, LAYOUT, SPACING } from "@/constants";
 import { Ionicons } from "@expo/vector-icons";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 
@@ -38,11 +38,11 @@ const styles = StyleSheet.create({
   },
   text: {
     color: COLORS.text,
-    fontSize: 16,
+    fontSize: FONT_SIZE.lg,
     marginBottom: SPACING.xs,
   },
   subText: {
     color: COLORS.text,
-    fontSize: 12,
+    fontSize: FONT_SIZE.sm,
   },
 });

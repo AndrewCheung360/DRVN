@@ -5,7 +5,7 @@ import { AppText } from "@/components/ui/AppText";
 import Button from "@/components/ui/Button";
 import IconButton from "@/components/ui/IconButton";
 import Spacer from "@/components/ui/Spacer";
-import { COLORS } from "@/constants";
+import { COLORS, FONT_SIZE, LAYOUT, SPACING } from "@/constants";
 import { useRouter } from "expo-router";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -25,24 +25,24 @@ export default function HomeScreen() {
           subtitle="12 day streak"
           onFriendsPress={() => router.push("/(tabs)/home/friends")}
         />
-        <Spacer size={48} />
+        <Spacer size={SPACING.xxxl} />
 
         <MotivationCard 
           motivation="I want to become the best version of myself and inspire others along the way." 
         />
 
-        <Spacer size={48} />
+        <Spacer size={SPACING.xxxl} />
 
-        <AppText variant="medium" style={{ fontSize: 20, marginLeft: 24 }}>Today&apos;s Training</AppText>
+        <AppText variant="medium" style={{ fontSize: FONT_SIZE.xxl, marginLeft: 24 }}>Today&apos;s Training</AppText>
 
-        <Spacer size={64} />
+        <Spacer size={SPACING.xxxxl} />
         <Button title="Get Started" onPress={handlePress} />
         <IconButton icon="add" onPress={handlePress} />
         <AppInput placeholder="Enter name" />
         <AppInput 
           label="Username" 
           placeholder="Enter username"
-          style={{ marginHorizontal: 24 }}
+          style={{ marginHorizontal: LAYOUT.horizontalPadding }}
         />
       </View>
     </SafeAreaView>

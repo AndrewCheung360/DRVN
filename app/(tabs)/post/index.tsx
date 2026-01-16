@@ -7,11 +7,13 @@ import { COLORS, FONT_SIZE, LAYOUT, SPACING } from "@/constants";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
   StatusBar,
   StyleSheet,
+  TouchableWithoutFeedback,
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -27,38 +29,50 @@ export default function PostScreen() {
   return (
     <SafeAreaView style={styles.safeArea} edges={["top"]}>
       <StatusBar barStyle="light-content" backgroundColor={COLORS.background} />
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.keyboardView}
-      >
+      <View style={styles.container}>
         <View style={styles.headerWrapper}>
           <PostScreenHeader 
             title="New Post" 
             onClose={() => console.log("Close pressed")} 
           />
         </View>
-        <ScrollView contentContainerStyle={styles.scrollViewContent}>
-          <MediaPicker onPress={() => console.log("Add media pressed")} />
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={styles.keyboardView}
+          keyboardVerticalOffset={0}
+        >
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <ScrollView
+              contentContainerStyle={styles.scrollViewContent}
+              keyboardShouldPersistTaps="handled"
+            >
+              <MediaPicker onPress={() => console.log("Add media pressed")} />
 
-          <Spacer size={SPACING.xxl} />
+              <Spacer size={SPACING.xxl} />
 
-          <AppInput
-            label="WHAT YOU WORKED ON (OPTIONAL)"
-            placeholder="Describe your training session..."
-            multiline
-            value={description}
-            onChangeText={setDescription}
-            inputStyle={styles.textInput}
-            labelStyle={styles.inputLabel}
-            style={styles.input}
+              <AppInput
+                label="WHAT YOU WORKED ON (OPTIONAL)"
+                placeholder="Describe your training session..."
+                multiline
+                value={description}
+                onChangeText={setDescription}
+                inputStyle={styles.textInput}
+                labelStyle={styles.inputLabel}
+                style={styles.input}
+              />
+
+              {/* Spacer to allow scrolling past the footer */}
+              <Spacer size={SPACING.xxl} />
+            </ScrollView>
+          </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
+        <View style={styles.footer}>
+          <PostFooterButtons
+            onCancel={() => console.log("Cancel pressed")}
+            onConfirm={handleContinue}
           />
-        </ScrollView>
-
-        <PostFooterButtons
-          onCancel={() => console.log("Cancel pressed")}
-          onConfirm={handleContinue}
-        />
-      </KeyboardAvoidingView>
+        </View>
+      </View>
     </SafeAreaView>
   );
 }
@@ -79,8 +93,9 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     zIndex: 1,
   },
-  scrollViewContent: {
+    scrollViewContent: {
     flexGrow: 1,
+    minHeight: '100%',
     paddingTop: SPACING.xxl,
   },
   input: {
@@ -94,6 +109,12 @@ const styles = StyleSheet.create({
     height: 120,
     textAlignVertical: "top",
     fontSize: FONT_SIZE.md,
-    color: COLORS.textInput
+    color: COLORS.textInput,
+  },
+  footer: {
+    backgroundColor: COLORS.background,
+    paddingHorizontal: LAYOUT.horizontalPadding,
+    paddingBottom: SPACING.lg,
+    paddingTop: SPACING.md,
   },
 });

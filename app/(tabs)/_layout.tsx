@@ -6,6 +6,7 @@ export default function TabLayout() {
     <Tabs 
       initialRouteName="home"
       screenOptions={{ 
+        // Change tint color later...
         tabBarActiveTintColor: "#007AFF",
         headerShown: false,
       }}
