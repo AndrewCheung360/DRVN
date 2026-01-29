@@ -1,13 +1,11 @@
+import { HomePost } from "@/components/home/HomePost";
 import HomeScreenHeader from "@/components/home/HomeScreenHeader";
 import MotivationCard from "@/components/shared/MotivationCard";
-import AppInput from "@/components/ui/AppInput";
 import { AppText } from "@/components/ui/AppText";
-import Button from "@/components/ui/Button";
-import IconButton from "@/components/ui/IconButton";
 import Spacer from "@/components/ui/Spacer";
-import { COLORS, FONT_SIZE, LAYOUT, SPACING } from "@/constants";
+import { COLORS, FONT_SIZE, SPACING } from "@/constants";
 import { useRouter } from "expo-router";
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
@@ -19,7 +17,7 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea} edges={["top"]}>
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
         <HomeScreenHeader 
           title="DRVN"
           subtitle="12 day streak"
@@ -36,15 +34,21 @@ export default function HomeScreen() {
         <AppText variant="medium" style={{ fontSize: FONT_SIZE.xxl, marginLeft: 24 }}>Today&apos;s Training</AppText>
 
         <Spacer size={SPACING.xxxxl} />
-        <Button title="Get Started" onPress={handlePress} />
-        <IconButton icon="add" onPress={handlePress} />
-        <AppInput placeholder="Enter name" />
-        <AppInput 
-          label="Username" 
-          placeholder="Enter username"
-          style={{ marginHorizontal: LAYOUT.horizontalPadding }}
-        />
-      </View>
+
+        {/* Example HomePost */}
+        <HomePost
+          name="Alex Morgan"
+          sport="Soccer"
+          hours={2}
+          streak={12}
+          imageUrl="https://placehold.co/600x400?text=Training+Photo"
+          caption="Great session today! Focused on endurance and teamwork."
+          onFirstAction={() => console.log("Like pressed")}
+          onSecondAction={() => console.log("Comment pressed")}
+          firstActionLabel="Props"
+          secondActionLabel="Comment" effortRating={0} enjoymentRating={0}        />
+
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -55,6 +59,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background, 
   },
   container: {
-    flex: 1,
+    paddingBottom: SPACING.xxl,
   },
 });
