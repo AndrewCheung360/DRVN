@@ -25,8 +25,9 @@ export default function ReflectionScreen() {
         {/* Header Row */}
         <View style={styles.headerRow}>
           <IconButton icon="arrow-back" onPress={() => router.back()} />
-          <AppText variant="medium" style={styles.title}>Reflect on Today</AppText>
+          <AppText variant="medium" style={{fontSize : FONT_SIZE.md}}>Back</AppText>
         </View>
+        <AppText variant="medium" style={styles.title}>Reflect on Today</AppText>
         <AppText style={styles.subtitle}>
           Quick reflection helps you track patterns and improve over time.
         </AppText>
@@ -140,7 +141,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: FONT_SIZE.xl,
     color: COLORS.text,
-    marginLeft: 8,
   },
   subtitle: {
     color: COLORS.text,
@@ -184,7 +184,6 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   },
   sectionInput: {
-    minHeight: 64,
     borderWidth: 1,
     borderColor: COLORS.border,
     backgroundColor: COLORS.background,
@@ -193,6 +192,7 @@ const styles = StyleSheet.create({
   sectionInputText: {
     color: COLORS.text,
     fontSize: FONT_SIZE.md,
+    minHeight: 96,
   },
   shareRow: {
     flexDirection: "row",

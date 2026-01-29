@@ -57,11 +57,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginTop: 4,
+    width: "100%",
   },
   label: {
     color: COLORS.text,
     fontSize: FONT_SIZE.sm,
-    flex: 1,
+    flex: 0,
+    textAlign: "left"
   },
   value: {
     color: COLORS.text,
