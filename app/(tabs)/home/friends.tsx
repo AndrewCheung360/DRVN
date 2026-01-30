@@ -20,12 +20,16 @@ export default function FriendsScreen() {
       <View style={styles.container}>
         <View style={styles.header}>
           <IconButton icon="arrow-back" onPress={() => router.back()} />
-          <AppText variant="medium" style={styles.title}>Friends</AppText>
+          <AppText variant="medium" style={{color: COLORS.text, fontSize: FONT_SIZE.md}}>Back</AppText>
           {/* Placeholder for alignment */}
           <View style={styles.placeholder} /> 
         </View>
 
-        <Spacer size={SPACING.xxl} />
+        <Spacer size={SPACING.xl} />
+
+        <AppText variant="medium" style={styles.title}>Friends</AppText>
+
+        <Spacer size = {SPACING.xxl}/>
 
         <View style={styles.content}>
           <AppInput placeholder="Search friends..." style={{ marginBottom: SPACING.lg }} />
@@ -57,12 +61,12 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
     paddingHorizontal: LAYOUT.horizontalPadding,
   },
   title: {
     color: COLORS.text,
     fontSize: FONT_SIZE.xl,
+    paddingHorizontal: LAYOUT.horizontalPadding,
   },
   placeholder: {
     width: 36,
