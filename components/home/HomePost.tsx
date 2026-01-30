@@ -43,15 +43,17 @@ export function HomePost({
         <View style={styles.headerRow}>
           <View style={styles.headerLeft}>
             <AppText variant="medium" style={styles.name}>{name}</AppText>
-            <AppText variant="regular" style={styles.sport}>{sport} • {hours} hrs</AppText>
+            <AppText variant="regular" style={styles.sport}>{sport}</AppText>
           </View>
           <View style={styles.headerRight}>
-            <AppText variant="semiBold" style={styles.streakLabel}>🔥 Streak</AppText>
-            <AppText variant="medium" style={styles.streakCount}>{streak}</AppText>
+            <AppText variant="semiBold" style={styles.streakLabel}>🔥 {streak}</AppText>
           </View>
         </View>
 
         <Spacer size={SPACING.md} />
+
+        <AppText variant="regular" style={styles.sport}>{hours} hours ago</AppText>
+
       </View>
 
       {/* Main Image (no padding) */}
@@ -103,17 +105,17 @@ const styles = StyleSheet.create({
   headerRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "flex-start",
   },
   headerLeft: {
     flex: 1,
   },
   name: {
-    fontSize: FONT_SIZE.md,
+    fontSize: FONT_SIZE.lg,
     color: COLORS.text,
   },
   sport: {
-    fontSize: FONT_SIZE.sm,
+    fontSize: FONT_SIZE.md,
     color: COLORS.text,
     marginTop: 2,
   },
@@ -132,7 +134,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    aspectRatio: 16 / 9,
+    aspectRatio: 398 / 298,
     backgroundColor: COLORS.border,
   },
   caption: {
