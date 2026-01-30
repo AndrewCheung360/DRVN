@@ -33,7 +33,7 @@ export default function HomeScreen() {
 
         <AppText variant="medium" style={{ fontSize: FONT_SIZE.xxl, marginLeft: 24 }}>Today&apos;s Training</AppText>
 
-        <Spacer size={SPACING.xxxxl} />
+        <Spacer size={SPACING.xxl} />
 
         {/* Example HomePost */}
         <HomePost

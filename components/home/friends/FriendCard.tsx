@@ -53,6 +53,7 @@ export function FriendCard({
           onPress={onViewProfile}
           style={styles.viewProfileButton}
           variant="plain"
+          textStyle={{ fontSize: FONT_SIZE.md }}
         />
       </View>
     </View>

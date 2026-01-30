@@ -39,7 +39,7 @@ export default function FriendsScreen() {
             handle="janedoe"
             sport="Running"
             streak={7}
-            lastActive="2 hours ago"
+            lastActive="Today"
             onViewProfile={handleViewProfile}
           />
         </View>
