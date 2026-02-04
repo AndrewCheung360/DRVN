@@ -18,6 +18,7 @@ export default function ProfileHeader({ name, handle, imageUrl }: ProfileHeaderP
         <AppText variant="regular" style={styles.handle}>@{handle}</AppText>
       </View>
     </View>
+    
   );
 }
 

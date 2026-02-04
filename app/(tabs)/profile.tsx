@@ -3,8 +3,10 @@ import ProfileInformationCardRow from "@/components/profile/ProfileInformationCa
 import TrainingGrid from "@/components/profile/TrainingGrid";
 import MotivationCard from "@/components/shared/MotivationCard";
 import { AppText } from "@/components/ui/AppText";
+import { EditInfoButton } from "@/components/ui/EditInfoButton";
 import Spacer from "@/components/ui/Spacer";
 import { COLORS, FONT_SIZE, LAYOUT } from "@/constants";
+import { router } from "expo-router";
 import { useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -38,6 +40,12 @@ export default function ProfileScreen() {
           imageUrl={undefined}
         />
         <Spacer size={16} />
+        <EditInfoButton
+          title="Edit Profile"
+          onPress={() => router.push("/profile/editProfile")}
+          style={{ marginHorizontal: LAYOUT.horizontalPadding }}
+        />
+        <Spacer size={16}/>
         <ProfileInformationCardRow 
           cards={[
             { label: "Streak", value: "12", valueSize: "large" },
