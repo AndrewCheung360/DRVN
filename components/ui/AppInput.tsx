@@ -5,7 +5,7 @@ import { AppText } from "./AppText";
 interface AppInputProps extends Omit<TextInputProps, "style"> {
   label?: string;
   style?: ViewStyle;
-  inputStyle?: TextInputProps["style"];
+  inputStyle?: TextStyle;
   labelStyle?: TextStyle;
 }
 
@@ -14,7 +14,7 @@ export default function AppInput({ label, style, inputStyle, labelStyle, ...prop
     <View style={[styles.container, style]}>
       {label && <AppText variant="regular" style={[styles.label, labelStyle]}>{label}</AppText>}
       <TextInput
-        style={[styles.input, inputStyle]}
+        style={[styles.input, inputStyle]} // inputStyle comes last, so it overrides
         placeholderTextColor={COLORS.textInput}
         selectionColor={COLORS.text}
         {...props}

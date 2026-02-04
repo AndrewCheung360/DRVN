@@ -5,10 +5,26 @@ import MotivationCard from "@/components/shared/MotivationCard";
 import { AppText } from "@/components/ui/AppText";
 import Spacer from "@/components/ui/Spacer";
 import { COLORS, FONT_SIZE, LAYOUT } from "@/constants";
+import { useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ProfileScreen() {
+  // Store motivation in state so it can be updated
+  const [motivation, setMotivation] = useState(
+    "I want to become the best version of myself and inspire others along the way."
+  );
+  
+  // Handler for edit button
+  const handleEdit = () => {
+    // Add your edit logic here (e.g., open a modal, navigate, etc.)
+    console.log("Edit Motivation pressed");
+  };
+
+  // Handler to update motivation when saved
+  const handleSaveMotivation = (newMotivation: string) => {
+    setMotivation(newMotivation);
+  };
   return (
     <SafeAreaView style={styles.safeArea} edges={["top"]}>
       <ScrollView 
@@ -31,7 +47,9 @@ export default function ProfileScreen() {
         />
         <Spacer size={32} />
         <MotivationCard 
-          motivation="I want to become the best version of myself and inspire others along the way." 
+          motivation={motivation}
+          onEditPress={handleEdit}
+          onSave={handleSaveMotivation}
         />
         <Spacer size={48} />
         <AppText variant="medium" style={styles.sectionTitle}>Training History</AppText>
