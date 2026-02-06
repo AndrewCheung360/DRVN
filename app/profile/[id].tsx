@@ -15,7 +15,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
  * Screen for viewing another user's profile, matching the main profile layout.
  */
 export default function OtherProfileScreen() {
-  const { id } = useLocalSearchParams();
+  const { id, returnTo } = useLocalSearchParams();
   const navigation = useNavigation();
 
   // Hide tab bar when this screen mounts, show it when it unmounts
@@ -59,7 +59,16 @@ export default function OtherProfileScreen() {
     <SafeAreaView style={styles.safeArea} edges={["top"]}>
         {/* Header with back button */}
       <View style={styles.header}>
-        <IconButton icon="arrow-back" onPress={() => router.back()} />
+        <IconButton icon="arrow-back" 
+        onPress={() => {
+          if (returnTo) {
+            const returnPath = Array.isArray(returnTo) ? returnTo[0] : returnTo;
+            router.push(returnPath as any);
+          } else {
+            router.back();
+          }
+        }}
+        />
         <AppText variant="medium" style={{color: COLORS.text, fontSize: FONT_SIZE.md}}>Back</AppText>
         {/* Placeholder for alignment */}
         <View style={styles.placeholder} /> 

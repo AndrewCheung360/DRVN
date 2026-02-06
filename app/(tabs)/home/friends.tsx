@@ -11,7 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function FriendsScreen() {
   const router = useRouter();
   const handleViewProfile = () => {
-    router.push(`/profile/${123}`);
+    router.push(`/profile/${123}?returnTo=/home/friends`); // THIS IS HARD CODED RIGHT NOW, CHANGE LATER
     console.log("View Profile pressed!");
   };
 
@@ -19,7 +19,7 @@ export default function FriendsScreen() {
     <SafeAreaView style={styles.safeArea} edges={["top"]}>
       <View style={styles.container}>
         <View style={styles.header}>
-          <IconButton icon="arrow-back" onPress={() => router.back()} />
+          <IconButton icon="arrow-back" onPress={() => router.push("/home")} />
           <AppText variant="medium" style={{color: COLORS.text, fontSize: FONT_SIZE.md}}>Back</AppText>
           {/* Placeholder for alignment */}
           <View style={styles.placeholder} /> 
