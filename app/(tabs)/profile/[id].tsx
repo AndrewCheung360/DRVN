@@ -3,11 +3,12 @@ import ProfileInformationCardRow from "@/components/profile/ProfileInformationCa
 import TrainingGrid from "@/components/profile/TrainingGrid";
 import MotivationCard from "@/components/shared/MotivationCard";
 import { AppText } from "@/components/ui/AppText";
+import IconButton from "@/components/ui/IconButton";
 import Spacer from "@/components/ui/Spacer";
 import { COLORS, FONT_SIZE, LAYOUT } from "@/constants";
-import { useLocalSearchParams } from "expo-router";
-import { useState } from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { router, useLocalSearchParams, useNavigation } from "expo-router";
+import { useEffect, useState } from "react";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 /**
@@ -15,8 +16,26 @@ import { SafeAreaView } from "react-native-safe-area-context";
  */
 export default function OtherProfileScreen() {
   const { id } = useLocalSearchParams();
+  const navigation = useNavigation();
 
-  // TODO: Replace with real backend data
+  // Hide tab bar when this screen mounts, show it when it unmounts
+  useEffect(() => {
+    const parent = navigation.getParent();
+    if (parent) {
+      parent.setOptions({
+        tabBarStyle: { display: "none" }
+      });
+    }
+
+    return () => {
+      if (parent) {
+        parent.setOptions({
+          tabBarStyle: { display: "flex" }
+        });
+      }
+    };
+  }, [navigation]);
+
   const [motivation, setMotivation] = useState(
     "This is your friend's motivation statement."
   );
@@ -38,6 +57,13 @@ export default function OtherProfileScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea} edges={["top"]}>
+        {/* Header with back button */}
+      <View style={styles.header}>
+        <IconButton icon="arrow-back" onPress={() => router.back()} />
+        <AppText variant="medium" style={{color: COLORS.text, fontSize: FONT_SIZE.md}}>Back</AppText>
+        {/* Placeholder for alignment */}
+        <View style={styles.placeholder} /> 
+      </View>
       <ScrollView 
         style={styles.container} 
         contentContainerStyle={styles.content}
@@ -49,7 +75,6 @@ export default function OtherProfileScreen() {
           imageUrl={mockProfile.imageUrl}
         />
         <Spacer size={16} />
-        {/* Edit button hidden for other profiles */}
         <ProfileInformationCardRow 
           cards={[
             { label: "Streak", value: mockProfile.streak, valueSize: "large" },
@@ -84,6 +109,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.background,
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: LAYOUT.horizontalPadding,
+  },
+  placeholder: {
+    width: 36,
   },
   content: {
     paddingTop: 32,
