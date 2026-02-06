@@ -11,7 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function FriendsScreen() {
   const router = useRouter();
   const handleViewProfile = () => {
-    // Handle navigation or logic here
+    router.push(`/profile/${123}`);
     console.log("View Profile pressed!");
   };
 
