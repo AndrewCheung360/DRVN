@@ -3,13 +3,32 @@ import { AppText } from "@/components/ui/AppText";
 import { EditInfoButton } from "@/components/ui/EditInfoButton";
 import Spacer from "@/components/ui/Spacer";
 import { COLORS, FONT_SIZE, LAYOUT } from "@/constants";
-import { useRouter } from "expo-router";
-import { useState } from "react";
+import { useNavigation, useRouter } from "expo-router";
+import { useEffect, useState } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 // import IconSymbol from "@/components/ui/icon-symbol"; // Replace with your camera icon component
 
 export default function EditProfileScreen() {
+  const navigation = useNavigation();
+
+  // Hide tab bar when this screen mounts, show it when it unmounts
+  useEffect(() => {
+    const parent = navigation.getParent();
+    if (parent) {
+      parent.setOptions({
+        tabBarStyle: { display: "none" }
+      });
+    }
+    return () => {
+      if (parent) {
+        parent.setOptions({
+          tabBarStyle: { display: "flex" }
+        });
+      }
+    };
+  }, [navigation]);
+  
   const router = useRouter();
   const [displayName, setDisplayName] = useState("You");
   const [username, setUsername] = useState("@you");
